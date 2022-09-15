@@ -72,6 +72,7 @@ const gameOver = () => {
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
+  resultModal.style.cssText= "top:50%; left:50%";
   modalBackground.classList.toggle("hidden");
   // clear user text
   display.innerHTML = "";
@@ -112,11 +113,12 @@ const start = () => {
 
     // finished timer
     if (count == 0) {
+      countdownOverlay.style.cssText = "display:flex; display:none";
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.cssText = "display:flex; display:none";
       display.classList.remove("inactive");
 
+      
       clearInterval(startCountdown);
       startTime = new Date().getTime();
     }
